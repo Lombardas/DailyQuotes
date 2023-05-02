@@ -18,7 +18,6 @@
 		F497D1F42A00188E00379831 /* DailyQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497D1F32A00188E00379831 /* DailyQuote.swift */; };
 		F497D1F62A00189000379831 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F497D1F52A00189000379831 /* Assets.xcassets */; };
 		F497D1FA2A00189000379831 /* DailyQuoteExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F497D1E82A00188E00379831 /* DailyQuoteExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F497D2002A001F4600379831 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497D1FF2A001F4600379831 /* Quote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		F497D1F32A00188E00379831 /* DailyQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuote.swift; sourceTree = "<group>"; };
 		F497D1F52A00189000379831 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F497D1F72A00189000379831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F497D1FF2A001F4600379831 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +133,6 @@
 				F497D1EF2A00188E00379831 /* DailyQuoteBundle.swift */,
 				F497D1F12A00188E00379831 /* DailyQuoteLiveActivity.swift */,
 				F497D1F32A00188E00379831 /* DailyQuote.swift */,
-				F497D1FF2A001F4600379831 /* Quote.swift */,
 				F497D1F52A00189000379831 /* Assets.xcassets */,
 				F497D1F72A00189000379831 /* Info.plist */,
 			);
@@ -244,7 +241,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F497D1D92A00183D00379831 /* ContentView.swift in Sources */,
-				F497D2002A001F4600379831 /* Quote.swift in Sources */,
 				F497D1D72A00183D00379831 /* Daily_QuotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

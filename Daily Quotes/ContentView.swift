@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     
@@ -19,7 +20,10 @@ struct ContentView: View {
     
     
     
+    
     var body: some View {
+        
+        
         
         VStack{
             
@@ -43,7 +47,7 @@ struct ContentView: View {
             }.padding()
             
             
-        }
+        }.onAppear { WidgetCenter.shared.reloadAllTimelines()}
     }
 }
 
