@@ -175,36 +175,26 @@ struct DailyQuoteEntryView : View {
     var body: some View {
         
         
-        let quote = Quote(id: entry.id, author: entry.author, quote: entry.quote)
-        let _ = quote.storeQuote(quote: quote)
-        
-        
-       // DQ.storeQuote(quote: entry)
         switch family {
         case .accessoryRectangular:
             
             VStack {
-                HStack{
-                    Image(systemName: entry.categoryIcon)
-                        .resizable()
-                        .frame(width: 12, height: 12)
-                    Text(entry.author)
-
+               
+                Text(entry.author)
                         .bold()
-                    
-                   
-                }
+                        .fixedSize(horizontal: false, vertical: true)
                 Text(entry.quote)
                   .scaledToFit()
+                  .fixedSize(horizontal: false, vertical: true)
                     
-                // print("hola")
+                
             }
             
         case .systemMedium:
             
             VStack{
-                Text("Your quote for today:")
-                    .font(.subheadline)
+               // Text("Your quote for today:")
+                 //   .font(.subheadline)
                 
                 HStack{
                     Image(systemName: entry.categoryIcon)
@@ -213,10 +203,13 @@ struct DailyQuoteEntryView : View {
                     Text(entry.author)
                         .font(.title2)
                         .bold()
+                        
                 }
                 Text(entry.quote)
-                    .font(.subheadline)
-                    .scaledToFit()
+                    //.font(.subheadline)
+                    .fixedSize(horizontal: false, vertical: true)
+                    //.scaledToFit()
+                    //.multilineTextAlignment(.center)
             }.padding()
             
         default:
@@ -260,16 +253,17 @@ struct Quote {
     }
     
     
-    func storeQuote(quote: Quote)
+   /* func storeQuote(quote: Quote)
     {
         if let userdefaults = UserDefaults(suiteName: "group.com.tasioalmansa.quote") {
             userdefaults.set(quote.id, forKey: "id")
             userdefaults.set(quote.author, forKey: "author")
             userdefaults.set(quote.quote, forKey: "quote")
             userdefaults.synchronize()
+            print("desde Widget: StoreQuote: \(quote)")
         }
         
-    }
+    }*/
    
     }//End Quote Class
 
