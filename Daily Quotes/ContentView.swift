@@ -16,6 +16,10 @@ struct ContentView: View {
             VStack{
                 Text("Hello, thanks for downloading this app. You will get now daily motivational/inspirational quotes from important personalities!")
                     .padding()
+                Image("quote")
+                    .resizable()
+                    .frame(width: 180,height: 180)
+                    .clipShape(Circle())
                 
                 Text("You can now go to your Home screen, enter on edit mode (press and hold) and click on '+' to add 'Daily Quotes' Widget.")
                     .padding()

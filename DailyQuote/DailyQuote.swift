@@ -128,7 +128,7 @@ struct QuoteProvider: TimelineProvider {
         {
             
             entries.append(QuoteEntry(date: date.addingTimeInterval(interval),id: item.id, author: item.author, quote: item.quote, categoryIcon: "person.fill.questionmark"))
-            interval += 5 //3600
+            interval += 86400 //3600 == 1h, 86400 == 1d
             
            // storeQuote(quote: item)
             
@@ -142,11 +142,11 @@ struct QuoteProvider: TimelineProvider {
     
     
     func placeholder(in context: Context) -> QuoteEntry {
-        QuoteEntry(date: Date(),id: 0,author: "Albert Einstein",quote: "Dos cosas son infinitas: la estupidez humana y el universo; y no estoy seguro de lo segundo.", categoryIcon: "x.squareroot")
+        QuoteEntry(date: Date(),id: 0,author: "Albert Einstein",quote: "Two things are infinite: the universe and human stupidity; and I’m not sure about th’universe!", categoryIcon: "quote")
     }
     
     func getSnapshot(in context: Context, completion: @escaping (QuoteEntry) -> Void) {
-        completion(QuoteEntry(date: Date(),id: 0,author: "Albert Einstein",quote: "Dos cosas son infinitas: la estupidez humana y el universo; y no estoy seguro de lo segundo.", categoryIcon: "x.squareroot"))
+        completion(QuoteEntry(date: Date(),id: 0,author: "Albert Einstein",quote: "Two things are infinite: the universe and human stupidity; and I’m not sure about th’universe!", categoryIcon: "quote"))
     }
     
     
@@ -197,9 +197,10 @@ struct DailyQuoteEntryView : View {
                  //   .font(.subheadline)
                 
                 HStack{
-                    Image(systemName: entry.categoryIcon)
+                    Image("quote")
                         .resizable()
-                        .frame(width: 32, height: 32)
+                        .frame(width: 72, height: 72)
+                        .clipShape(Circle())
                     Text(entry.author)
                         .font(.title2)
                         .bold()
@@ -208,6 +209,7 @@ struct DailyQuoteEntryView : View {
                 Text(entry.quote)
                     //.font(.subheadline)
                     .fixedSize(horizontal: false, vertical: true)
+                    //.padding(
                     //.scaledToFit()
                     //.multilineTextAlignment(.center)
             }.padding()
