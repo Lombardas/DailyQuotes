@@ -11,52 +11,62 @@ import WidgetKit
 struct ContentView: View {
     
     
-    /* let quotes: [Quotes] = [Quotes(author: "Albert Einstein", quote: "El problema del hombre no está en la bomba atómica, sino en su corazón.", quoteIcon: "person.fill.questionmark"),
-     Quotes(author: "Mahatma Gandhi", quote: "No hay caminos para la paz; la paz es el camino.", quoteIcon: "person.fill.questionmark"),
-     Quotes(author: "John Lennon", quote: "Haz el amor y no la guerra.", quoteIcon: "person.fill.questionmark"),
-     Quotes(author: "Jacinto Benavente", quote: "Lo peor que hacen los malos es obligarnos a dudar de los buenos .", quoteIcon: "person.fill.questionmark"),
-     Quotes(author: "Plato", quote: "El cuerpo humano es el carruaje; el yo, el hombre que lo conduce; el pensamiento son las riendas, y los sentimientos, los caballos.", quoteIcon: "person.fill.questionmark")]
-     */
-    
-    
-    
-    
-    var body: some View {
-        
-        
-        
-        VStack{
+    var quote: Quote {
+        /*
+        if let userdefaults = UserDefaults(suiteName: "group.com.tasioalmansa.horoscope") {
             
-            
-           Text("Hello, thanks for downloading this app. You can now add Daily Quotes widget to your Home!")
-            Text("You will see different quotes every day from the below categories:")
-            
-                .padding()
-                
-            HStack{
-                
-                    Image("author")
-                        .resizable()
-                        .frame(width: 120, height: 126)
-                        .cornerRadius(65)
-                        .shadow(radius: 15)
+            if let author = userdefaults.string(forKey: "author" )
+            {
+                if let quote = userdefaults.string(forKey: "quote" ) {
                     
-                    Text("Software Engineer with experience in several languages and technologies. Getting deep into iOS development. Fell free to check out my LinkedIn and other portfolio apps using the below links.")
-               
-                
-            }.padding()
+                    return Quote(author: author, quote: quote)
+                }
+            }
+        }
+        return Quote(author: "Nelson Mandela", quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.")
+        */
+        return Quote(author: "Nelson Mandela", quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.")
+    } //End Quote - Computed variable
+     
+    var body: some View {
+        VStack{
+        Text("Hello, thanks for downloading this app. You can now add Daily Quotes widget to your Home!")
+            .padding()
+        Text("You can now go to your Home screen, enter on edit mode (press and hold) and click on '+' to add 'Daily Quotes' Widget.")
+        VStack{
+            Spacer()
+            HStack{
+                Image(systemName: "person.fill.questionmark")
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                Text(quote.author)
+                    .font(.title2)
+                    .bold()
+            }
             
+            Text(quote.quote)
+                .font(.subheadline)
+            //.scaledToFit()
+            Spacer()
+            Button {
+                WidgetCenter.shared.reloadAllTimelines()
+            } label:  {
+            Text("Restart Widget")
+            }.buttonStyle(.bordered)
             
-        }.onAppear { WidgetCenter.shared.reloadAllTimelines()}
-    }
-}
 
+        }.padding()
+    }//End VStack principal
+         
+    }//.onAppear {WidgetCenter.shared.reloadAllTimelines()}
+        
+    
+}// End View
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
 
 
