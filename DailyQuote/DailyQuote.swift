@@ -128,7 +128,7 @@ struct QuoteProvider: TimelineProvider {
         {
             
             entries.append(QuoteEntry(date: date.addingTimeInterval(interval),id: item.id, author: item.author, quote: item.quote, categoryIcon: "person.fill.questionmark"))
-            interval += 3600
+            interval += 5 //3600
             
            // storeQuote(quote: item)
             
@@ -176,6 +176,9 @@ struct DailyQuoteEntryView : View {
         
         
         let quote = Quote(id: entry.id, author: entry.author, quote: entry.quote)
+        let _ = quote.storeQuote(quote: quote)
+        
+        
        // DQ.storeQuote(quote: entry)
         switch family {
         case .accessoryRectangular:
@@ -198,6 +201,7 @@ struct DailyQuoteEntryView : View {
             }
             
         case .systemMedium:
+            
             VStack{
                 Text("Your quote for today:")
                     .font(.subheadline)
@@ -255,19 +259,21 @@ struct Quote {
         //self.quoteIcon = quoteIcon
     }
     
-   
-    }
-
-
-func storeQuote(quote: Quote)
-{
-    if let userdefaults = UserDefaults(suiteName: "group.com.tasioalmansa.quote") {
-        userdefaults.set(quote.id, forKey: "id")
-        userdefaults.set(quote.author, forKey: "author")
-        userdefaults.set(quote.quote, forKey: "quote")
-        userdefaults.synchronize()
-    }
     
-}
+    func storeQuote(quote: Quote)
+    {
+        if let userdefaults = UserDefaults(suiteName: "group.com.tasioalmansa.quote") {
+            userdefaults.set(quote.id, forKey: "id")
+            userdefaults.set(quote.author, forKey: "author")
+            userdefaults.set(quote.quote, forKey: "quote")
+            userdefaults.synchronize()
+        }
+        
+    }
+   
+    }//End Quote Class
+
+
+
     
 
