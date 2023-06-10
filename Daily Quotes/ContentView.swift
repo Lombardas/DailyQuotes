@@ -9,8 +9,8 @@ import SwiftUI
 import WidgetKit
 
 struct ContentView: View {
+    
    
-        
         
         var body: some View {
             VStack{
@@ -20,7 +20,8 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 180,height: 180)
                     .clipShape(Circle())
-                
+               
+                    
                 Text("You can now go to your Home screen, enter on edit mode (press and hold) and click on '+' to add 'Daily Quotes' Widget.")
                     .padding()
                 Spacer()
